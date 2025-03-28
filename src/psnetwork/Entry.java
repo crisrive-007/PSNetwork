@@ -9,5 +9,13 @@ package psnetwork;
  * @author river
  */
 public class Entry {
+    public String username;
+    public long posicion;
+    public Entry next;
     
+    public Entry(String username, long posicion) {
+        this.username = username;
+        this.posicion = posicion;
+        this.next = null;
+    }
 }
