@@ -34,6 +34,7 @@ public class HashTable {
                 if (actual.username.equals(username)) {
                     if (eliminarCuenta() == 0) {
                         JOptionPane.showMessageDialog(null, "Cuenta eliminada exitosamente.");
+                        return;
                     }
                 }
             }

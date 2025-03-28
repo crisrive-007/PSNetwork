@@ -48,14 +48,19 @@ public class PSNUsers {
             archivo.writeInt(0);
             trofeos = new RandomAccessFile(username + "_trofeos.psn", "rw");
             users.add(username, posicion);
+            JOptionPane.showMessageDialog(null, "Se ha creado el usuario.");
         }
+        JOptionPane.showMessageDialog(null, "Este usuario ya existe.");
     }
 
     private boolean usuarioNoExiste(String username) throws IOException {
         archivo.seek(0);
         while (archivo.getFilePointer() < archivo.length()) {
             String nombre = archivo.readUTF();
-            archivo.readUTF();
+            long posicion = archivo.readLong();
+            boolean activo = archivo.readBoolean();
+            int puntos = archivo.readInt();
+            int trofeos = archivo.readInt();
             if (nombre.equals(username)) {
                 return false;
             }
@@ -73,6 +78,7 @@ public class PSNUsers {
             int trofeos = archivo.readInt();
             if (nombre.equals(username)) {
                 users.remove(username);
+                System.out.println("se borro.");
             }
         }
     }

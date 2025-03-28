@@ -105,7 +105,6 @@ public class GUI extends JFrame {
                 if (!usernameField.equals("") || usernameField != null) {
                     String username = usernameField.getText().trim();
                     usuarios.addUser(username);
-                    JOptionPane.showMessageDialog(this, "Usuario añadido");
                     usernameField.setText("");
                 }
             } catch (IOException ex) {
